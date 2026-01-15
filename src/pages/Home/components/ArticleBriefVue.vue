@@ -18,30 +18,38 @@
     </div>
     <div class="brief-foot">
       <span class="article-date">Jan 01,2026 23:00</span>
-      <span><span class="article-label" v-for="i in 3"><el-tag size="small">Python</el-tag></span></span>
+      <span
+        ><span class="article-label" v-for="i in 3"
+          ><el-tag size="small">Python</el-tag></span
+        ></span
+      >
     </div>
   </div>
 </template>
 <script setup lang="ts"></script>
 <style scoped lang="scss">
 .article-brief {
-  width: 800px;
+  width: 600px;
   height: 180px;
-  border: 1px solid rgba(19, 182, 215, 0.405);
+  border: 1px solid #0599e346;
+  border-bottom: 3px solid #4189ef;
   border-radius: 10px;
-  margin: 10px 0;
+  margin: 20px 0;
+  user-select: none;
+  background: linear-gradient(135deg ,#7edddd25 0%,#69d7cb2a 100%) ;
+  
 
-  &:hover{
+  &:hover {
     position: relative;
-    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.155);
+    box-shadow: 0px 0px 10px 5px rgba(24, 37, 37, 0.275);
     // bottom: 5px;
     translate: 0 -5px;
     transition: all 0.5s;
+    cursor: pointer;
   }
   .brief-top,
   .brief-foot {
     display: flex;
-
   }
 
   .brief-top {
@@ -52,28 +60,28 @@
       display: flex;
       flex-direction: column;
       padding: 20px 5px;
-      color: #035956;
-    
+      color: #418ff5;
+
       .article-title {
         font-size: x-large;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
         text-indent: 1em;
-        font-weight: 700;
+        font-weight: 500;
+        
       }
       .article-content {
         width: 100%;
         font-size: medium;
-        text-indent: 2em; 
-        overflow: hidden; 
-        text-overflow: ellipsis; 
-        display: -webkit-box; 
+        text-indent: 2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         padding: 0 10px;
-        color: #184d3d;
-        
+        color: rgb(44, 44, 48);
       }
     }
 
@@ -104,14 +112,14 @@
     align-items: end;
     justify-content: space-between;
 
-    .article-date{
-        font-style: italic;
-        color: #035956;
-
+    .article-date {
+      font-style: italic;
+      font-weight: 400;
+      color: #035956;
     }
 
-    .article-label{
-        margin: 0 5px;
+    .article-label {
+      margin: 0 5px;
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100vw; height: 100vh">
+  <div style="width: 100vw; height: 100vh;position: relative;">
     <el-container class="h-full w-full">
       <el-header class="w-full" height="80px">
         <div class="w-full h-full header">
@@ -43,10 +43,17 @@
           </div>
         </div>
       </el-header>
-      <el-main class="w-full h-full" style="scrollbar-width: none;" >
-        <router-view ></router-view>
+      <el-main class="w-full h-full" style="scrollbar-width: none;">
+        
+      
+    
+        <router-view></router-view>
       </el-main>
+      <OneVue
+       style="position: absolute;width: 100%;height: 100%;z-index: -1;"></OneVue>
     </el-container>
+    
+
   </div>
 </template>
 <script setup lang="ts">
@@ -61,6 +68,11 @@ import {
   User,
 } from "@element-plus/icons-vue";
 import router from "../router";
+import OneVue from "../animates/weather/components/OneVue.vue";
+
+
+
+
 
 const searchText = ref("");
 const menuItemsLeft = [
@@ -70,38 +82,36 @@ const menuItemsLeft = [
   { name: "工具箱", path: "/tools", icon: markRaw(Briefcase), index: 3 },
   { name: "其他", path: "/other", icon: markRaw(More), index: 4 },
   { name: "关于我", path: "/about", icon: markRaw(Message), index: 5 },
-]
+];
 
 const selected = ref(0);
 const menuItemsRight = [
-  { name: "写什么", path: "/edit", icon:markRaw(Edit), index: 6 },
+  { name: "写什么", path: "/edit", icon: markRaw(Edit), index: 6 },
   { name: "登录", path: "/login", icon: markRaw(User), index: 7 },
-]
+];
 const goto = (path: string, index: number) => {
   selected.value = index;
   router.push(path);
 };
 
-onMounted(()=>{
-  menuItemsLeft.forEach(item=>{
-    if(router.currentRoute.value.path==item.path){
-      selected.value=item.index;
+onMounted(() => {
+  menuItemsLeft.forEach((item) => {
+    if (router.currentRoute.value.path == item.path) {
+      selected.value = item.index;
     }
-  })
-  menuItemsRight.forEach(item=>{
-    if(router.currentRoute.value.path==item.path){
-      selected.value=item.index;
+  });
+  menuItemsRight.forEach((item) => {
+    if (router.currentRoute.value.path == item.path) {
+      selected.value = item.index;
     }
-  })
-})
-
-
-
+  });
+});
 </script>
 <style scoped lang="scss">
 .el-header {
   padding: 0 40px;
-  background-color: $primary;
+  // background-color: $primary;
+  background: linear-gradient(to right,#6ee8e2 0%,#fff ,#6ae2eb 100%);
 
   .header {
     display: flex;
@@ -126,15 +136,20 @@ onMounted(()=>{
       height: 60px;
       color: rgb(37, 58, 60);
       user-select: none;
+      span{
+        font-size: small;
+      }
 
       //   border: 1px solid;
 
       div {
-        width: 100%;
+        width: 80%;
         flex-direction: column;
 
         &:hover {
           color: #1743c8;
+          cursor: pointer;
+          
         }
       }
     }
@@ -166,15 +181,19 @@ onMounted(()=>{
       height: 60px;
       color: rgb(37, 58, 60);
       user-select: none;
+      span{
+        font-size: small;
+      }
 
       //   border: 1px solid;
 
       div {
-        width: 100%;
+        width: 80%;
         flex-direction: column;
 
         &:hover {
           color: #1743c8;
+          cursor: pointer;
         }
       }
     }
@@ -188,10 +207,8 @@ onMounted(()=>{
     }
   }
 }
-.el-main{
+.el-main {
   padding: 0;
   background-color: #cbe8e9a2;
 }
-
-
 </style>

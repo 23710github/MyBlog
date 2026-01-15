@@ -36,15 +36,15 @@
   padding-top: 40px;
 
   .timeline-item-activate {
-    font-size: large;
+    font-size: medium;
     font-weight: 500;
   }
   .timeline-item-normal {
-    font-size: medium;
+    font-size: small;
     font-weight: 300;
     cursor: pointer;
     &:hover {
-      font-size: large;
+      font-size: medium;
       font-weight: 500;
     }
   }

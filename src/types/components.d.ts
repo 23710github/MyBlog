@@ -28,5 +28,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TimelineVue: typeof import('./../pages/Home/components/TimelineVue.vue')['default']
+    WeatherVue: typeof import('./../pages/Home/components/WeatherVue.vue')['default']
   }
 }
